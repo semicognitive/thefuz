@@ -10,8 +10,7 @@
   },
   "importMap": "import-map.json",
   "compilerOptions": {
-    "target": "esnext",
-    "lib": ["dom", "dom.iterable", "dom.asynciterable", "deno.ns"],
+    "lib": ["es2021", "dom", "dom.iterable"],
     "strict": true
   },
   "fmt": {

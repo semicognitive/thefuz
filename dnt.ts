@@ -13,7 +13,7 @@ await build({
   test: false,
   importMap: denoconfig.importMap,
   compilerOptions: {
-    lib: ["es2021", "dom"],
+    lib: ["es2021", "dom", "dom.iterable"],
   },
   shims: {},
   package: {
@@ -41,7 +41,7 @@ await build({
     engines: {
       "node": ">=16.0.0",
     },
-    author: denoconfig.package.github.split('/')[0],
+    author: denoconfig.package.github.split("/")[0],
     bugs: {
       url: `https://github.com/${denoconfig.package.github}/issues`,
     },
