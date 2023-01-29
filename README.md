@@ -29,3 +29,7 @@ Try in the [Svelte Repl](https://svelte.dev/repl/ba9befe7c7854b5a8b98e00a1bcbfd5
 Example
 
 <img width="800" alt="Svelte Repl Screenshot" src="https://user-images.githubusercontent.com/20548516/215312997-17effcc3-08c8-4827-b2a2-259d54c30680.png">
+
+## Inspiration
+
+Original idea here https://github.com/yoheinakajima/fuzzy.js
