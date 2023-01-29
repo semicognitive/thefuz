@@ -1,16 +1,26 @@
-# es-package
+# thefuz
 
-A template for creating and publishing an ES module
+Using GPT-3 as a back-end, but with Svelte.
 
-Start by [using this template](https://github.com/semicognitive/es-package/generate)
+Made from [this template](https://github.com/semicognitive/es-package/generate)
 
-## Publish
-Easily publish to [deno.land/x](https://deno.land/x) and [npm](https://npmjs.com)
+## Usage
+Try in the [Svelte Repl](https://svelte.dev/repl/ba9befe7c7854b5a8b98e00a1bcbfd53?version=3.55.1)
 
-### Deno
-- Follow https://deno.land/add_module
-- Create a [release](https://github.com/semicognitive/es-package/releases/new?tag=1.0.0&title=1.0.0&body=Initial%20release)
+```svelte
+<script>
+	import { fuzzyapi } from "https://esm.sh/thefuz";
 
-### Npm
-- Add a [action secret](https://github.com/semicognitive/es-package/settings/secrets/actions/new) of [`NPM_ACCESS_TOKEN`](https://docs.npmjs.com/creating-and-viewing-access-tokens#creating-access-tokens)
-- Create a [release](https://github.com/semicognitive/es-package/releases/new?tag=1.0.0&title=1.0.0&body=Initial%20release)
+	const OPENAPI_KEY = "";
+</script>
+
+<div use:fuzzyapi={[OPENAPI_KEY, "Resaurants in Seattle"]}>
+	<h4><span data-fuz="name"/></h4>
+  <span data-fuz="address"/><br/>
+	<span data-fuz="cuisine"/>
+  
+	<h4><span data-fuz="name"/></h4>
+  <span data-fuz="address"/><br/>
+	<span data-fuz="cuisine"/>
+</div>
+```
