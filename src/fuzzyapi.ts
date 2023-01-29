@@ -1,13 +1,12 @@
 /**
  * Svelte action to fuz data from GPT-3
  */
-export function fuzzyapi(parentnode, [OPENAPI_KEY, description]) {
-  async function execute([OPENAPI_KEY, description]) {
-    const fuznodes = [...parentnode.querySelectorAll("[data-fuz]")];
-    const fuzattributes = [...(new Set(fuznodes.map((n) => n.dataset.fuz)))];
+export function fuzzyapi(parentnode: HTMLElement, [OPENAPI_KEY, description]: [string, string]) {
+  async function execute([OPENAPI_KEY, description]: [string, string]) {
+    const fuznodes = [...parentnode.querySelectorAll("[data-fuz]")] as HTMLElement[];
+    const fuzattributes = [...(new Set(fuznodes.map((n) => n.dataset.fuz!)))];
 
-    const num_items =
-      parentnode.querySelectorAll(`[data-fuz="${fuzattributes[0]}"]`).length;
+    const num_items = parentnode.querySelectorAll(`[data-fuz="${fuzattributes[0]}"]`).length;
 
     const prompt =
       "Provide a JSON array of real data based on the following description of the app, keys requested,and number of items requested. Provide the answer as clean JSON data. Format the values to match the fomatting described in the keys requested. Provide the answer as well formatted minified JSON.###DESCRIPTION:" +
@@ -33,9 +32,7 @@ export function fuzzyapi(parentnode, [OPENAPI_KEY, description]) {
     const jsonArr = JSON.parse(response.choices[0].text);
 
     for (const attr of fuzattributes) {
-      const fuzattrnodes = [
-        ...parentnode.querySelectorAll(`[data-fuz="${attr}"]`),
-      ];
+      const fuzattrnodes = [...parentnode.querySelectorAll(`[data-fuz="${attr}"]`)] as HTMLElement[];
 
       for (const [i_node, node] of fuzattrnodes.entries()) {
         node.innerText = jsonArr[i_node][attr];
@@ -46,10 +43,11 @@ export function fuzzyapi(parentnode, [OPENAPI_KEY, description]) {
   execute([OPENAPI_KEY, description]);
 
   return {
-    update([OPENAPI_KEY, description]) {
+    update([OPENAPI_KEY, description]: [string, string]) {
       execute([OPENAPI_KEY, description]);
     },
     destroy() {
+      
     },
   };
 }
