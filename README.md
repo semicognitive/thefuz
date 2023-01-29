@@ -16,11 +16,11 @@ Try in the [Svelte Repl](https://svelte.dev/repl/ba9befe7c7854b5a8b98e00a1bcbfd5
 
 <div use:fuzzyapi={[OPENAPI_KEY, "Resaurants in Seattle"]}>
 	<h4><span data-fuz="name"/></h4>
-  <span data-fuz="address"/><br/>
+ 	<span data-fuz="address"/><br/>
 	<span data-fuz="cuisine"/>
   
 	<h4><span data-fuz="name"/></h4>
-  <span data-fuz="address"/><br/>
+  	<span data-fuz="address"/><br/>
 	<span data-fuz="cuisine"/>
 </div>
 ```
